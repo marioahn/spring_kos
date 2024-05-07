@@ -1,0 +1,1 @@
+- new -> spring legacy project -> MVC templates
