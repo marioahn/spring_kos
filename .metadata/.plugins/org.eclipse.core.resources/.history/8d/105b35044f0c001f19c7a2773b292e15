@@ -1,0 +1,10 @@
+package polymorphism;
+
+public interface TV {
+	// 인터페이스는 아래 포함
+	public void powerOn();
+	public void powerOff();
+	public void volumeUp();
+	public void volumeDown();
+
+}
