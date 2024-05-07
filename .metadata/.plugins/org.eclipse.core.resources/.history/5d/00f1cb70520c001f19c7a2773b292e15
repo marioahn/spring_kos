@@ -21,9 +21,6 @@ public class TVUser {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("제조사를 입력하세요");
 		TV tv = (TV) factory.getBean(sc.next());
-//		TV tv = (TV) factory.getBean(args[0]); // main함수 실행할 때, 들어오는 arguments로 넣겠다는 뜻임
-		// 패키지 오른쪽마우스 - run as - run configurations - (x)=arguments칸에 쓰면 됨
-		// samsung lg 이렇게 띄어쓰기로 주면, 첫인덱스가 samsung, 두번째 인덱스가 lg인 셈임
 		tv.powerOn();
 		tv.powerOff();
 		tv.volumeUp();
