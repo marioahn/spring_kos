@@ -49,7 +49,8 @@ public class TVUser {
 		tv.powerOff();
 		
 		// (Step5)
-		// TODO: Step6 中: 단, 여기서는 sony객체 생성은 안됨. 이미 위에서 만들어졌으니까
+		// Step6 中: 단, 여기서는 sony객체 생성은 안됨. 이미 위에서 만들어졌으니까
+			// container bean은 위에서 아래로, 한번 만들어지면 끝임ㅇㅇ
 		TV tv1 = (TV)factory.getBean("tv");
 		TV tv2 = (TV)factory.getBean("tv");
 		TV tv3 = (TV)factory.getBean("tv");

@@ -2,22 +2,33 @@ package polymorphism;
 
 public class SamsungTV implements TV {
 	private Speaker speaker;// private타입! - DI하려고 가져옴
+	
+	// setter를 이용해서 DI! - 보통 생성자로 DI는 잘 안 쓰는 방법임!!!!
+		// 생정자로 DI하려면, 오버로딩을 많이 해야하는데, 이건 하나 만들면 끝임!
+	public void setSpeaker(Speaker speaker) {
+		System.out.println("setSpeaker 호출!");
+		this.speaker = speaker;
+	}
+	public void setPrice(int price) {
+		System.out.println("setPrice 호출!");
+		this.price = price;
+	}
 	private int price;
 	
 	public SamsungTV() {
 		System.out.println("삼성 TV 객체(1) 생성 완료");
 	}
-	// DI를 사용한 생성자함수 - configurations에서 bean사이에 ref있으면 이 내용 있어야 에러 안남 
-	public SamsungTV(Speaker speaker) {
-		System.out.println("삼성 TV 객체(2) 생성 완료");
-		this.speaker = speaker;
-	}
-	// 인자 또 하나 추가 -> configurations에서 constructor-args추가해야지 
-	public SamsungTV(Speaker speaker, int price) {
-		System.out.println("삼성 TV 객체(3) 생성 완료");
-		this.speaker = speaker;
-		this.price = price;
-	}
+//	// DI를 사용한 생성자함수 - configurations에서 bean사이에 ref있으면 이 내용 있어야 에러 안남 
+//	public SamsungTV(Speaker speaker) {
+//		System.out.println("삼성 TV 객체(2) 생성 완료");
+//		this.speaker = speaker;
+//	}
+//	// 인자 또 하나 추가 -> configurations에서 constructor-args추가해야지 
+//	public SamsungTV(Speaker speaker, int price) {
+//		System.out.println("삼성 TV 객체(3) 생성 완료");
+//		this.speaker = speaker;
+//		this.price = price;
+//	}
 	
 	// bean-confirgurations파일에 samsungTV bean에 init,destroyMethod넣어주려면 여기서 만들어야겠지ㅇㅇ
 	public void initMethod() {
