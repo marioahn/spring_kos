@@ -37,7 +37,8 @@ public class TVUser {
 		 	-> print: 삼성 TV 객체 생성 완료
 		 - 
 		*/
-		// Step1: Spring컨.테이너를 구.동한다
+		// Step1: Spring컨.테이너를 구.동한다 - 팩토리컨테이너임 컨테이너ㅇㅇ.
+			// 컨테이너안의 것들 호출은 getBean이 담당하는 거고
 		AbstractApplicationContext factory = // factory가 컨테이너임ㅇㅇ 
 				new GenericXmlApplicationContext("applicationContext.xml");
 		// Step2: Spring컨테이너로부터 필요한 객체를 요청(Lookup)한다
@@ -48,6 +49,7 @@ public class TVUser {
 		tv.powerOff();
 		
 		// (Step5)
+		// TODO: Step6 中: 단, 여기서는 sony객체 생성은 안됨. 이미 위에서 만들어졌으니까
 		TV tv1 = (TV)factory.getBean("tv");
 		TV tv2 = (TV)factory.getBean("tv");
 		TV tv3 = (TV)factory.getBean("tv");
@@ -76,7 +78,10 @@ public class TVUser {
 		 */
 		
 
-		
+		// Step6: applicationContext.xml에 삼성bean에 소니 ref를 추가함
+			// 이제 출력결과는 삼성의 생성자 함수는 삼성객체(2)가 출력되고, 볼륨업다운도 sony로 바뀐다
+			// 6-2: price를 추가 -> constructor-arg ref가 아니라, value임 이번엔
+				// 이거 추가하면, 이제 삼성version3가 호출된다
 		
 		
 	}

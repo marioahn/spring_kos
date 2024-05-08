@@ -3,10 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<!-- 1. 삼성tv 객체, scope="singleton" 스코프는 싱글톤이 기본옵션임 -->
 	<bean id="tv" class="polymorphism.SamsungTV"
 	init-method="initMethod" destroy-method="destroyMethod"
-	scope="prototype"/>
-	<!-- scope="singleton" 스코프는 싱글톤이 기본옵션임 -->
+	scope="singleton">
+		<!-- 이렇게 생.성.자의 argument로 sony가 있으면, 아래 소니bean(=객체)이 먼저 생성된다ㅇㅇ
+			-> 즉,생성자도 default생성자가 아니라, sony가 매개변수로 di된 생성자가 호출되는 것
+			-> 또한, 같은 타입이 매개변수에 들어가는 경우? index속성으로 구별해줌~! -->
+		<constructor-arg index="0" ref="apple"></constructor-arg>
+		<constructor-arg index="1" value="2700000"></constructor-arg>
+	</bean>
+	
+	<!-- 2. 소니스피커 - 삼성은 DI해야하니까, 닫는태그로..! -->
+	<bean id="sony" class="polymorphism.SonySpeaker"/>
+	<bean id="apple" class="polymorphism.AppleSpeaker"/>
 		
 
 </beans>
