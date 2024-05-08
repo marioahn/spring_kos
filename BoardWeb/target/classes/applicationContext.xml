@@ -4,6 +4,7 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<!-- Step1. polymorphism package에서 사용되는 Class Bean들 -->
 	<!-- 1. 삼성tv 객체, scope="singleton" 스코프는 싱글톤이 기본옵션임 -->
 	<bean id="tv" class="polymorphism.SamsungTV"
 	init-method="initMethod" destroy-method="destroyMethod"
@@ -21,9 +22,23 @@
 		<!-- <property name="speaker" ref="apple"></property>
 		<property name="price" value="2700000"></property> -->
 	</bean>
-	
 	<!-- 2. 소니스피커 - 삼성은 DI해야하니까, 닫는태그로..! -->
 	<bean id="sony" class="polymorphism.SonySpeaker"/>
 	<bean id="apple" class="polymorphism.AppleSpeaker"/>
-		
+	
+	<!-- Step2. 컬렉션 빈의 경우 -->
+	<bean id="collectionBean" class="com.springbook.ioc.injection.CollectionBean">
+		<property name="addressList">
+			<map>
+				<entry>
+					<key><value>고길동</value></key>
+					<value>서울시 강남구 역삼동</value>
+				</entry>
+				<entry>
+					<key><value>마이콜</value></key>
+					<value>서울시 강서구 화곡동</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
 </beans>
