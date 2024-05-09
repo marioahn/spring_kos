@@ -12,6 +12,7 @@ public class LgTV implements TV {
 	// @Qualifier("apple")
 		// (1)speaker가 2개인데, 이거 안 써주면 어떤 스피커 가려야할지 모르니까 에러남.
 		// (2)혹은, configuration에서 apple이나 sony중 1개 객체 생성해주면 됨ㅇㅇ!!
+		// 어찌되었든, annotation도 객.체를 생.성시킨다는 것 잊지마라 -> annotation or bean등록 2가지 방법이 있다는 겄! 
 	// @Resource(name="apple")
 	private Speaker speaker; // 멤버 변수
 	
