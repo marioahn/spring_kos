@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="BoardWeb1"/>
 <aop-project name="BoardWeb"/>
 </aop-reference-model>
