@@ -11,3 +11,14 @@
 1715148497881	Delete element
 1715148532989	Extract interface 'Speaker'
 1715148735460	Copy compilation unit
+1715239078314	Rename package 'com.springbook.biz.board.common'
+1715239329338	Rename package 'com.springbook.ioc.injection'
+1715239351644	Copy package
+1715239371344	Delete element
+1715239579346	Delete element
+1715241104452	Delete element
+1715241123157	Delete element
+1715241128493	Copy compilation unit
+1715241134189	Copy compilation unit
+1715241139287	Rename type 'BoardService'
+1715241149945	Copy compilation unit
