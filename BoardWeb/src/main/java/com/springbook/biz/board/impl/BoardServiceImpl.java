@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 
-@Service("boardService")
+@Service("boardService") // 서비스 어노테이션!
 public class BoardServiceImpl implements BoardService{
-	@Autowired
+	@Autowired // 자동생성 - bean대신임.
 	private BoardDAO boardDAO;
 	
 	// 교재엔 왜 다 override안했지?
