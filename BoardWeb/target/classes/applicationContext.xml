@@ -50,7 +50,12 @@
 	<!-- <bean id="apple" class="polymorphism.AppleSpeaker"/> -->
 	
 	<!-- Step4. 실습! -->
-	<context:component-scan base-package="com.springbook.biz">
-	</context:component-scan>
+	<context:component-scan base-package="com.springbook.biz" />
+	
+	<bean id="userService" class="com.springbook.biz.user.impl.UserServiceImpl">
+		<property name="userDAO" ref="userDAO" />	
+	</bean>
+	
+	<bean id="userDAO" class="com.springbook.biz.user.impl.UserDAO" />
 	
 </beans>

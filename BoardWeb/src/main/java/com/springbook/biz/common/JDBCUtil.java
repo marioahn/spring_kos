@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 // 공통부분은 common패키지에 JDBCUtil클래스 안에 넣어둠ㅇㅇ.
 public class JDBCUtil {
-	public static Connection getConneciton() { // Connection타입
+	public static Connection getConnection() { // Connection타입
 		try {
 			Class.forName("org.h2.Driver"); // h2에 연결
 			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", ""); // 주소, adminId, pw임!
