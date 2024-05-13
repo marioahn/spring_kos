@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 public class JDBCUtil {
 	public static Connection getConnection() { // Connection타입
 		try {
+			// 만약, H2말고 oracle, mysql에 하려면, 아래 변수를 다르게 입력하면 됨
 			Class.forName("org.h2.Driver"); // h2에 연결
 			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", ""); // 주소, adminId, pw임!
 		} catch (Exception e) {

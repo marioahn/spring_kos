@@ -90,8 +90,6 @@ public class BoardDAO {
 			System.out.println(vo.getSeq());
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				// TODO: 근데, 이렇게 아래 일일이 세팅하는거 좀 비효율적인거 같은데..? 원래 이렇게 함?
-				// TODO: 아니면 기초라 걍 이렇게 하는거임??
 				board = new BoardVO();
 				board.setSeq(rs.getInt("SEQ"));
 				board.setTitle(rs.getString("TITLE"));
