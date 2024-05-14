@@ -26,7 +26,9 @@
 	<h1>글 상세</h1>
 	<a href="logout_proc.jsp">Log-Out</a>
 	<hr>
-	<form action="getBoardList.jsp" method="post">
+	<!-- 글 상세들어가면, 수정버튼 따로 없고, 걍 텍스트 바로 수정할 수 있도록 하는 원시적인 구조라ㅎ.. -->
+	<form action="updateBoard_proc.jsp" method="post">
+	<input name="seq" type="hidden" value="<%= board.getSeq() %>" />
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>
 			<td bgcolor="orange" width="70">제목</td>
@@ -57,7 +59,7 @@
 	</form>
 	<hr>
 	<a href="insertBoard.jsp">글 등록</a>&nbsp;&nbsp;&nbsp;
-	<a href="deleteBoard_proc.jsp">글 삭제</a>&nbsp;&nbsp;&nbsp;
+	<a href="deleteBoard_proc.jsp?seq=<%= board.getSeq() %>">글 삭제</a>&nbsp;&nbsp;&nbsp;
 	<a href="getBoardList.jsp">글 목록</a>
 	</center>
 </body>

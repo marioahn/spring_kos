@@ -19,7 +19,8 @@ public class UserDAO {
 	private final String USER_INSERT = "insert into users(u_seq, u_name, u_gender, u_id, u_pw, u_pwc, u_addr, u_email, u_phone, u_hobby, u_introduce) values((select nvl(max(u_seq), 0)+1 from users),?,?,?,?,?,?,?,?,?,?)";
 
 	// CRUD 기능의 메소드 구현
-	// 회원 등록
+
+	// 회원 조회
 	public UserVO getUser(UserVO vo) {
 		UserVO user = null;
 		try {
