@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:component-scan
+		base-package="com.springbook.biz">
+	</context:component-scan>
+
+	<bean id="userService"
+		class="com.springbook.biz.user.impl.UserServiceImpl">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean id="userDAO" class="com.springbook.biz.user.impl.UserDAO" />
+
+	<!-- <bean id="sony" class="polymorphism.SonySpeaker"></bean> -->
+	<!-- <bean id="apple" class="polymorphism.AppleSpeaker"></bean> -->
+
+	<!-- <bean id="tv" class="polymorphism.LgTV"></bean> -->
+	<!-- polymorphism package에서 사용되는 Class들 <bean id="tv" class="polymorphism.SamsungTV" 
+		init-method="initMethod" destroy-method="destroyMethod" p:speaker-ref="sony" 
+		p:price="2700000"> <constructor-arg index="0" ref="apple"></constructor-arg> 
+		<constructor-arg index="1" value="2700000"></constructor-arg> <property name="speaker" 
+		ref ="apple"></property> <property name="price" value="2700000"></property> 
+		</bean> <bean id="sony" class="polymorphism.SonySpeaker"></bean> <bean id="apple" 
+		class="polymorphism.AppleSpeaker"></bean> <bean id="collectionBean" class="com.springbook.ioc.injection.CollectionBean"> 
+		<property name="addressList"> <set> <value>서울시 강남구 역삼동</value> <value>서울시 
+		성동구 행당동</value> <value>서울시 성동구 행당동</value> </set> </property> </bean> -->
+</beans>
