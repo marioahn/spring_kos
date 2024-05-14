@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>로그인</title>
+<link rel="stylesheet" href="resources/board_styles.css">
 </head>
 <body>
 	<center>

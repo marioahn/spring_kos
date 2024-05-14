@@ -18,6 +18,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>글 목록</title>
+<link rel="stylesheet" href="resources/board_styles.css">
 </head>
 <body>
 	<center>
@@ -49,9 +50,13 @@
 			<th bgcolor="orange" width="150">등록일</th>
 			<th bgcolor="orange" width="100">조회수</th>
 		</tr>
+		<!-- 반복문으로 tr 계속 생성ㅇㅇ -->
 		<% for(BoardVO board: boardList) { %>
 		<tr>
-			<td><%= board.getSeq() %></td>
+			<!-- 아래처럼 style하고 그 안에 넣는 방식이 권장 // td align="center"처럼 쌩으로 넣는건 정식.비추임ㅇㅇ.  -->
+			<td style="text-align: center;"><%= board.getSeq() %></td>
+			<!-- 이건 심지어, Title에 a링크걸어둠! -> 상세페이지로. by "jsp?seq=" ! -->
+			<!-- 현재, board_styles.css에도 똑같이 td정해놨는데, 우선순위는 직접넣는것보단 낮음ㅇㅇ. 아래칸은 left로! -->
 			<td align="left"><a href="getBoard.jsp?seq=<%= board.getSeq() %>">
 			<%= board.getTitle() %></a></td>
 			<td><%= board.getWriter() %></td>
