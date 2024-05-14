@@ -1,0 +1,29 @@
+/* 와우;; CSS까지.. 그냥 STS3프로젝트 안에서, 북치고 장구치고 다 되네.. 편하긴 하네 확실히 */
+@charset "EUC-KR";
+
+body {background-color: lightblue;}
+table {border-collapse: collapse;}
+th, td {
+	border-bottom: 1px solid #30d0d0;
+	border-top: 1px solid red;
+}
+h1 {
+	color: blue;
+	font-family: verdana;
+	font-size: 300%;
+}
+tr:hover {background-color: pink;}
+td {align: center;}
+
+a {text-decoration: none;}
+/* unvisited link */
+a:link {color: red;}
+
+/* visited link */
+a:visited {color: green;}
+
+/* mouse over link */
+a:hover {color: hotpink; text-decoration: underline}
+
+/* selected link */
+a:active {color: blue;}
