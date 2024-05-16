@@ -27,7 +27,7 @@
 <body>
 	<center>
 	<h1>글 목록</h1>
-	<h3>테스트님 환영합니다... <a href="logout_proc.jsp">Log-Out</a></h3>
+	<h3>테스트님 환영합니다... <a href="logout.do">Log-Out</a></h3>
 		
 	<!-- 검색 시작 -->
 	<form action="getBoardList.jsp" method="post">
@@ -57,12 +57,11 @@
 		<!-- 반복문으로 tr 계속 생성ㅇㅇ -->
 		<% for(BoardVO board: boardList) { %>
 		<tr>
-			<!-- 아래처럼 style하고 그 안에 넣는 방식이 권장 // td align="center"처럼 쌩으로 넣는건 정식.비추임ㅇㅇ.  -->
 			<td style="text-align: center;"><%= board.getSeq() %></td>
-			<!-- 이건 심지어, Title에 a링크걸어둠! -> 상세페이지로. by "jsp?seq=" ! -->
-			<!-- 현재, board_styles.css에도 똑같이 td정해놨는데, 우선순위는 직접넣는것보단 낮음ㅇㅇ. 아래칸은 left로! -->
-			<td align="left"><a href="getBoard.jsp?seq=<%= board.getSeq() %>">
-			<%= board.getTitle() %></a></td>
+			<td align="left">
+				<!-- getBoard model1->2작업은 이게 제일 먼저임. 여기서 getBoard.do로 바꿔줘야 함!  -->
+				<a href="getBoard.do?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a>
+			</td>
 			<td><%= board.getWriter() %></td>
 			<td><%= board.getRegDate() %></td>
 			<td><%= board.getCnt() %></td>

@@ -3,7 +3,7 @@
 <%@page contentType="text/html; charset=EUC-KR"%>
 
 <%
-	// 1. 검색할 게시글 번호 추출
+/* 	// 1. 검색할 게시글 번호 추출
 	String seq = request.getParameter("seq");
 	// 2. DB연동 처리
 	BoardVO vo = new BoardVO();
@@ -11,7 +11,9 @@
 	
 	BoardDAO boardDAO = new BoardDAO();
 	BoardVO board = boardDAO.getBoard(vo);
-	// 3. 응답화면 구성
+	// 3. 응답화면 구성 */
+	// 세션에 저장된 게시글 정보 꺼내기
+	BoardVO board = (BoardVO) session.getAttribute("board");
 %>
 
 <!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose/dtd">
@@ -25,10 +27,9 @@
 <body>
 	<center>
 	<h1>글 상세</h1>
-	<a href="logout_proc.jsp">Log-Out</a>
+	<a href="logout.do">Log-Out</a>
 	<hr>
-	<!-- 글 상세들어가면, 수정버튼 따로 없고, 걍 텍스트 바로 수정할 수 있도록 하는 원시적인 구조라ㅎ.. -->
-	<form action="updateBoard_proc.jsp" method="post">
+	<form action="updateBoard.do" method="post">
 	<input name="seq" type="hidden" value="<%= board.getSeq() %>" />
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>
@@ -60,8 +61,8 @@
 	</form>
 	<hr>
 	<a href="insertBoard.jsp">글 등록</a>&nbsp;&nbsp;&nbsp;
-	<a href="deleteBoard_proc.jsp?seq=<%= board.getSeq() %>">글 삭제</a>&nbsp;&nbsp;&nbsp;
-	<a href="getBoardList.jsp">글 목록</a>
+	<a href="deleteBoard.do?seq=<%= board.getSeq() %>">글 삭제</a>&nbsp;&nbsp;&nbsp;
+	<a href="getBoardList.do">글 목록</a>
 	</center>
 </body>
 </html>

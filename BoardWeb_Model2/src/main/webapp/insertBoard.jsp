@@ -9,9 +9,10 @@
 	<center>
 	<h1>글 등록</h1>
 	<hr>
-	<a href="logout_proc.jsp">Log-out</a>
+	<a href="logout.do">Log-out</a>
 	<hr>
-	<form action="insertBoard_proc.jsp" method="post">
+	<!-- insertBoard_proc.jsp에서 변경 - 이제 _proc.jsp는 안 쓸거임ㅇㅇ -->
+	<form action="insertBoard.do" method="post">
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>
 			<td bgcolor="orange" width="70">제목</td>
@@ -28,7 +29,6 @@
 		<tr>
 			<td colspan="2" align="center">
 				<input type="submit" value="새 글등록"/>
-				<!-- 그리고, insertBoard_porc.jsp파일을 만들어서 게시글db에 연동시키면 된다! -->
 			</td>
 		</tr>
 	</table>

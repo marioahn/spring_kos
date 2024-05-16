@@ -67,7 +67,7 @@ public class DispatcherServlet extends HttpServlet {
 				response.sendRedirect("getBoardList.do");
 				// 이제 여기 .jsp로 하면 못알아먹음. why? -> 바로 여기 이 파일인 dispatcherServlet.java파일이 실행x니까(do요청에만 응답함)
 				/* TODO: 그러면, getBoardList.do로 가게 되면, 이게 또 다시 doGet메서드에 의해 process가 다시 실행되고,
-				 * 아래 getBoardList분기로 들어가게 되는 것? 
+				 * 아래 getBoardList분기로 들어가게 되는 것? ㅇㅇ 그게 맞음
 				 */
 			} else {
 				response.sendRedirect("login.jsp"); // 이건 do가 아니지. 원래 login페.이지로 back해야 하니까
@@ -76,17 +76,77 @@ public class DispatcherServlet extends HttpServlet {
 			
 		} else if (path.equals("/logout.do")) {
 			System.out.println("로그아웃 처리");
+			// 1. 브라우저와 연결된 세션 객체를 강제 종료
+			HttpSession session = request.getSession();
+			session.invalidate(); 
+			// 2. 세션 종료 후, 메인 화면으로 이동한다 - 이건 do로 가면 큰일 나겠지!
+			response.sendRedirect("login.jsp");
+			
 		} else if (path.equals("/insertBoard.do")) {
 			System.out.println("글 등록 처리");
+			// 1. 사용자 입력 정보 추출
+			// request.setCharacterEncoding("EUC-KR"); // 없어도 됨. 위에서 doPost가 일괄적으로 먼저 해주잖아ㅇㅇ.!
+			String title = request.getParameter("title");
+			String writer = request.getParameter("writer");
+			String content = request.getParameter("content");
+			
+			// 2. DB연동 처리
+			BoardVO vo = new BoardVO();
+			vo.setTitle(title);
+			vo.setWriter(writer);
+			vo.setContent(content);
+			
+			BoardDAO boardDAO = new BoardDAO();
+			boardDAO.insertBoard(vo);
+			
+			// 3. 화면 네비게이션
+			response.sendRedirect("getBoardList.do");
+			
 		} else if (path.equals("/updateBoard.do")) {
 			System.out.println("글 수정 처리");
+			// 1. 사용자 입력 정보 추출
+			String title = request.getParameter("title");
+			String content = request.getParameter("content");
+			String seq = request.getParameter("seq");
+			// 2. DB연동 처리
+			BoardVO vo = new BoardVO();
+			vo.setTitle(title); 
+			vo.setContent(content);
+			vo.setSeq(Integer.parseInt(seq));
+			BoardDAO boardDAO = new BoardDAO();
+			boardDAO.updateBoard(vo);
+			// 3. 화면 네비게이션
+			response.sendRedirect("getBoardList.do"); // jsp가 아니라, do겠지 갱신된 것을 다시 가져와야 하니까
+			
 		} else if (path.equals("/deleteBoard.do")) {
 			System.out.println("글 삭제 처리");
+			// 1. 사용자 입력 정보 추출
+			String seq = request.getParameter("seq");
+			// 2. DB연동 처리
+			BoardVO vo = new BoardVO();
+			vo.setSeq(Integer.parseInt(seq));
+			BoardDAO boardDAO = new BoardDAO();
+			boardDAO.deleteBoard(vo);
+			// 3. 화면 네비게이션
+			response.sendRedirect("getBoardList.do");
+			
 		} else if (path.equals("/getBoard.do")) {
 			System.out.println("글 상세 조회 처리");
+			// 1. 검색할 게시글 번호 추출
+			String seq = request.getParameter("seq");
+			// 2. DB연동 처리
+			BoardVO vo = new BoardVO();
+			vo.setSeq(Integer.parseInt(seq));
+			
+			BoardDAO boardDAO = new BoardDAO();
+			BoardVO board = boardDAO.getBoard(vo);
+			// 3. 검색 결과를 세션에 저장하고, 상세 화면으로 이동한다
+			HttpSession session = request.getSession();
+			session.setAttribute("board", board);
+			response.sendRedirect("getBoard.jsp");
+			
 		} else if (path.equals("/getBoardList.do")) {
 			System.out.println("글 목록 검색 처리");
-			
 			// 0. 사용자 입력 정보 추출(for 검색 기능 - 나중에 구현)
 			// 1. DB연동 처리
 			BoardVO vo = new BoardVO();
