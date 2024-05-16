@@ -14,8 +14,9 @@
 	<center>
 	<h1>로그인</h1>
 	<hr>
-	<!-- form action: 웹페이지에서 사용자 입력을 받아, login_proc.jsp파일로 post되는 것임 -->
-	<form action="login_proc.jsp" method="post">
+	<!-- form action: 웹페이지에서 사용자 입력을 받아, login_proc.jsp파일로 post되는 것임
+	& model2오면서, login_proc.jsp에서 login.do로 변경! -->
+	<form action="login.do" method="post">
 	<table border="1" cellpadding="1" cellspacing="0">
 		<tr>
 			<td bgcolor="orange">아이디</td>

@@ -3,6 +3,7 @@
 <%@page import="com.springbook.biz.board.BoardVO"%>
 <%@page contentType="text/html; charset=EUC-KR"%>
 
+<!-- 여기는 _proc.jsp파일이 아니고, 그냥 한 파일안에 back,front코드 같이 있음ㅇㅇ. -->
 <%
 	// 1. 사용자 입력 정보 추출(검색은 나중에)
 	// 2. DB연동 처리

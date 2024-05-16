@@ -12,7 +12,6 @@
 	vo.setU_pw(password);
 	UserDAO userDAO = new UserDAO();
 	UserVO user = userDAO.getUser(vo);
-	// 와 ㅋㅋ 이렇게 user아디, 비번검사하네 ㅋㅋ 오우
 	
 	// 3. 화면 네비게이션
 	if (user != null) {
