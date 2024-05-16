@@ -7,9 +7,12 @@
 <%
 	// 1. 사용자 입력 정보 추출(검색은 나중에)
 	// 2. DB연동 처리
-	BoardVO vo = new BoardVO();
+	/* BoardVO vo = new BoardVO();
 	BoardDAO boardDAO = new BoardDAO();
-	List<BoardVO> boardList = boardDAO.getBoardList(vo);
+	List<BoardVO> boardList = boardDAO.getBoardList(vo); */
+	
+	// Session에서 -> getAttribute함수를 이용하여 (매개변수인)"boardList"아디(name)를 가진 것을 찾아서 boardList에 저장! 
+	List<BoardVO> boardList = (List) session.getAttribute("boardList");
 	// 3. 응답화면 구성
 %>
 

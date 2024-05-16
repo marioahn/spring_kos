@@ -64,9 +64,14 @@ public class DispatcherServlet extends HttpServlet {
 			UserVO user = userDAO.getUser(vo);
 			// 3. 화면 네비게이션
 			if (user != null) {
-				response.sendRedirect("getBoardList.jsp");
+				response.sendRedirect("getBoardList.do");
+				// 이제 여기 .jsp로 하면 못알아먹음. why? -> 바로 여기 이 파일인 dispatcherServlet.java파일이 실행x니까(do요청에만 응답함)
+				/* TODO: 그러면, getBoardList.do로 가게 되면, 이게 또 다시 doGet메서드에 의해 process가 다시 실행되고,
+				 * 아래 getBoardList분기로 들어가게 되는 것? 
+				 */
 			} else {
-				response.sendRedirect("login.jsp");
+				response.sendRedirect("login.jsp"); // 이건 do가 아니지. 원래 login페.이지로 back해야 하니까
+				// 즉, login.do로직을 실행하는게 아니다! 
 			}
 			
 		} else if (path.equals("/logout.do")) {
@@ -88,8 +93,11 @@ public class DispatcherServlet extends HttpServlet {
 			BoardDAO boardDAO = new BoardDAO();
 			List<BoardVO> boardList = boardDAO.getBoardList(vo);
 			// 2. 검색 결과를 세.션.에 저장하고 목록 화면으로 이동한다 -> !이 코드가 추가적으로 필요함!
+				// 원래는 boardList같은 정보는 세션에 저장하는건 아님ㅇㅇ.
+				// 임시적으로 이렇게 ㄱㄱ하고, spring mvc에서 httpServletRequest객체에 담을 것임. 세션이 아니라
+				// -> getBoardList.jsp의 java코드도 수정해줘야겠지
 			HttpSession session = request.getSession();
-			session.setAttribute("boardList", boardList); // (path, session)임. 매개변수 각각
+			session.setAttribute("boardList", boardList); // "boardList"이름을 가진 세션에 위에서 가져온 boardList를 저장(set)
 			response.sendRedirect("getBoardList.jsp");
 		}
 	}
