@@ -27,8 +27,11 @@ public class HandlerMapping {
 		mappings.put("/logout.do", new LogoutController());
 	}
 	
-	// TODO: 음.. path를 get으로 가져오네.. 어떻게 내부적으로 동작하는거지 이 함수가;;
-	public Controller getController(String path) {
+	/*- 음.. path를 get으로 가져오네.. 어떻게 내부적으로 동작하는거지 이 함수가;;
+	  -> HashMap은 key:value형태임ㅇㅇ. 그니까 그냥 key값으로 value찾는거임;;
+	  -> URL 요청 경로를 적절한 컨트롤러 객체에 매핑하는 역할의 메서드
+	  -> mappings 맵에서 주어진 path를 키로 사용하여 해당 경로에 매핑된 컨트롤러 객체를 반환 */
+	public Controller getController(String path) { // return타입은 Controller!
 		return mappings.get(path);
 	}
 }

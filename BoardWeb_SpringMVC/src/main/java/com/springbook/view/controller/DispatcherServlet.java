@@ -1,24 +1,12 @@
 package com.springbook.view.controller;
 
-/* 파일이름은 고정으로하기 - DisPatcherServlet으로!
- * 이게 바로, controller다
- * model1에서 webapp쪽에 속해있던,모든 _proc.jsp를 view.controller패키지로 옮길 것이다!  
- */
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.springbook.biz.board.BoardVO;
-import com.springbook.biz.board.impl.BoardDAO;
-import com.springbook.biz.user.UserVO;
-import com.springbook.biz.user.impl.UserDAO;
-
-/*Servlet implementation class DispatcherServlet */
 
 // servlet을 이해하니, 왜 http서블릿을 상속받는지 알겠음
 public class DispatcherServlet extends HttpServlet {
@@ -26,7 +14,9 @@ public class DispatcherServlet extends HttpServlet {
 	private HandlerMapping handlerMapping;
 	private ViewResolver viewResolver;
 	
-    // public DispatcherServlet() {super();} // 이거 대신에, init() 초기화 함수로 할 것
+    /* public DispatcherServlet() {super();} // 이거 대신에, init() 초기화 함수로 할 것
+     * 서블릿의 init()메소드는 서블릿 객체가 생성된 후에 멤버변수를 초기화하기 위해 자동으로 실.행되는 것 
+	 */
 	public void init() throws ServletException {
 		handlerMapping = new HandlerMapping();
 		viewResolver = new ViewResolver();
