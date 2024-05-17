@@ -35,7 +35,8 @@ public class DispatcherServlet extends HttpServlet {
 		process(request, response);
 	}
 
-	/* @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response) */
+	// jsp파일(프론트)에서 <form action=login.do .. method="post"> -> path는 login.do,함수는 doPost를 호출!(get이 아니라)
+	// 그냥 doGet,doPost가 알아서 호출되나봄. form의 method에 따라서
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// doGet(request, response);
 		request.setCharacterEncoding("EUC-KR"); // or UTF-8
