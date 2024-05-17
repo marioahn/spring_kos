@@ -66,10 +66,6 @@ public class DispatcherServlet extends HttpServlet {
 			// 3. 화면 네비게이션
 			if (user != null) {
 				response.sendRedirect("getBoardList.do");
-				// 이제 여기 .jsp로 하면 못알아먹음. why? -> 바로 여기 이 파일인 dispatcherServlet.java파일이 실행x니까(do요청에만 응답함)
-				/* TODO: 그러면, getBoardList.do로 가게 되면, 이게 또 다시 doGet메서드에 의해 process가 다시 실행되고,
-				 * 아래 getBoardList분기로 들어가게 되는 것? ㅇㅇ 그게 맞음
-				 */
 			} else {
 				response.sendRedirect("login.jsp"); // 이건 do가 아니지. 원래 login페.이지로 back해야 하니까
 				// 즉, login.do로직을 실행하는게 아니다! 
