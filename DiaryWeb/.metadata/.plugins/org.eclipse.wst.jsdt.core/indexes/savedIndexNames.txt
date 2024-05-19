@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+C:\Users\A\1-eclipse-workspace\sts\work_space3\DiaryWeb\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+720201090.index
+2886526361.index
+1688743041.index
+2788258501.index
