@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <servlet>
-    <servlet-name>action</servlet-name>
-    <servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class>
-  </servlet>
-  <!-- p.271 서블릿 추가하면 여기에 자동으로 추가됨 -->
-  <servlet-mapping>
-    <servlet-name>action</servlet-name>
-    <url-pattern>*.do</url-pattern>
-  </servlet-mapping>
+
+	<filter>
+		<filter-name>characterEncoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>EUC-KR</param-value>
+		</init-param>
+	</filter>  
+	<filter-mapping>
+		<filter-name>characterEncoding</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>action</servlet-name>
+	  <!-- <servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class> -->
+	 <!-- 이제 아래처럼, 스프링에서 제공해주는 D/S를 바.로 쓸거임. 직접 커스텀한 것을 쓴게 아니라 -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	 <!-- init-param: d/s가 실행될때, init()메서드가 켜지고 -> 스프링컨테이너 빈을 구동하는데, 그 위치 커스텀 설정한 부분임 -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/presentation-layer.xml</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
 </web-app>

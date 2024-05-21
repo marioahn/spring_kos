@@ -16,16 +16,17 @@
 ---
 ### 🚀 <span style="color:orange">3. 단계</span>
 
-#### <span style="color:green">Step 1: Model1</span>
+
+##### ${\textsf{\color{green}💦Step 1: Model1}}$
 - Bean = Model
 - jsp = Controller + View 
 
-#### <span style="color:green">Step 2: Model2</span>
+##### ${\textsf{\color{green}💦Step 2: Model2}}$
 - Bean = Model
 - jsp =  View 
 - DispatcherServlet = Controller
 
-#### <span style="color:green">Step 3-1: Spring MVC 패턴</span>
+##### ${\textsf{\color{green}💦Step 3-1: Spring MVC 패턴}}$
 - 기존에는 DispatcherServlet에 모든 Controller로직(비즈니스)이 들어가 있음
 - 그러나, 이 방법은 유지보수 등의 문제가 있으므로 각 로직별로 분리
 - DispatcherServlet: 유일한 서블릿 클래스 & 모든 클라이언트의 요청을 가장 먼저 처리하는 Front Controller
@@ -34,5 +35,5 @@
 - ViewResolver: Controller가 리턴한 View이름으로 실행될 JSP경로 완성
 - Controller -> DispatcherServlet에 return값은 String
 
-#### <span style="color:green">Step 3-2: Spring MVC 패턴2</span>
-- 
+##### ${\textsf{\color{green}💦Step 3-2: Spring MVC 패턴2}}$
+-  
