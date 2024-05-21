@@ -31,7 +31,9 @@ public class GetBoardListController implements Controller {
 		// 2. 검색 결과와 화면
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardList", boardList); // model정보 저장
-		mav.setViewName("getBoardList.jsp"); // view정보 저장
+		// mav.setViewName("getBoardList.jsp"); // view정보 저장 & viewResolver적용 전
+		mav.setViewName("getBoardList"); // .jsp생략한다. viewResolver가 pre,suffix붙이기 때문
+		// -> 최종경로: /WEB-INF/board/getBoardList.jsp를 실행!
 		
 		return mav;
 	}

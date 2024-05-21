@@ -31,10 +31,12 @@ public class LoginController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		if (user != null) {
 			// return "getBoardList.do"; // 이걸 dispatcher한테 던져주는 것임ㅇㅇ
-			mav.setViewName("getBoardList.do");
+			// mav.setViewName("getBoardList.do"); // viewResolver적용 전
+			mav.setViewName("redirect:getBoardList.do"); // redircet: viewResolver무시하고, 이 링크로 강제로 보냄!
 		} else {
 			// return "login"; 
-			mav.setViewName("login.jsp"); // do가 아니라 jsp페이지로ㅇㅇ
+			// mav.setViewName("login.jsp"); // do가 아니라 jsp페이지로ㅇㅇ & viewResolver적용 전
+			mav.setViewName("redirect:login.jsp");
 		}
 		return mav;
 	}

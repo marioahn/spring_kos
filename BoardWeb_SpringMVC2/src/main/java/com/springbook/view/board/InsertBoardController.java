@@ -31,7 +31,8 @@ public class InsertBoardController implements Controller {
 		// 3. 화면 네비게이션
 		// return "getBoardList.do"; // do는 꼭 .do붙여주기!
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("getBoardList.do"); // 여기로 가야하니까. getBoardList.jsp로 하면 업데이트 안되겠지
+		// mav.setViewName("getBoardList.do"); // 여기로 가야하니까. getBoardList.jsp로 하면 업데이트 안되겠지
+		mav.setViewName("redirect:getBoardList.do");
 		return mav;
 	}
 
