@@ -18,7 +18,9 @@ public class InsertBoardController {
 		boardDAO.insertBoard(vo);
 		return "getBoardList.do"; // redirectㅇㅇ
 	}
-	
+}
+
+
 //	@Override
 //	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 //		System.out.println("글 등록 처리");
@@ -43,5 +45,3 @@ public class InsertBoardController {
 //		mav.setViewName("redirect:getBoardList.do");
 //		return mav;
 //	}
-
-}
