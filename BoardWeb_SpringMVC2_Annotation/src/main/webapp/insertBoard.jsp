@@ -16,6 +16,7 @@
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>
 			<td bgcolor="orange" width="70">제목</td>
+			<!-- 와. 여기 name 이상하게 입력하면, Setter인젝션이 인식 못하고, VO command객체 사용 못함 -->
 			<td align="left"><input type="text" name="title"></td>
 		</tr>
 		<tr>
