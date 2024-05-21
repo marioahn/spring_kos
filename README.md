@@ -47,3 +47,9 @@
     - (1)HandlerMapping 등록
     - (2)Controller를 bean 등록 - (위에서 만든 handler와 연결하기 위해!)
     - (3)ViewResolver 등록
+
+##### ${\textsf{\color{green}💦Step 3-3: Spring MVC 패턴3 - Annotation적용}}$
+- 3-2에서는 xml파일에 bean으로 객체들을 관리했지만, 과도한 XML설정 문제가 야기될 수 있다
+- 따라서, 어노테이션 설정을 최대한 활용하여 XML설정을 최소화할 필요가 있다!
+
+- todo
