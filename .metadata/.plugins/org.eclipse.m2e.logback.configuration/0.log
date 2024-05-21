@@ -8077,3 +8077,105 @@ org.eclipse.core.runtime.CoreException: Launch configuration UserServiceClient (
 2024-05-21 10:33:17,993 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
 2024-05-21 10:33:18,011 [Worker-14: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2024-05-21 10:33:18,012 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:39:20,528 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:39:20,528 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC2\src\main\resources
+2024-05-21 10:39:20,530 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:39:20,530 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC2\src\test\resources
+2024-05-21 10:39:21,573 [Worker-17: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:39:21,575 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC2\src\main\resources
+2024-05-21 10:39:21,576 [Worker-17: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:39:21,576 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC2\src\test\resources
+2024-05-21 10:39:21,603 [Worker-17: Building] ERROR o.e.m.c.u.i.m.MarkerLocationService - null
+org.eclipse.jface.text.BadLocationException: null
+	at org.eclipse.jface.text.ListLineTracker.getLineOffset(ListLineTracker.java:197)
+	at org.eclipse.jface.text.AbstractLineTracker.getLineOffset(AbstractLineTracker.java:161)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.getLineOffset(BasicStructuredDocument.java:1497)
+	at org.eclipse.m2e.core.ui.internal.markers.MarkerLocationService.findLocationForMarker(MarkerLocationService.java:116)
+	at org.eclipse.m2e.core.internal.markers.MarkerUtils.decorateMarker(MarkerUtils.java:50)
+	at org.eclipse.m2e.core.internal.markers.MavenMarkerManager.addErrorMarker(MavenMarkerManager.java:333)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.processBuildResults(MavenBuilderImpl.java:316)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilderImpl.build(MavenBuilderImpl.java:175)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:169)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.method(MavenBuilder.java:1)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$1(MavenBuilder.java:114)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:114)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:105)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:88)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:197)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:853)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:232)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:281)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:334)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:337)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:389)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:410)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:160)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-05-21 10:40:24,033 [Worker-10: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-21 10:41:13,668 [Worker-17: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.springbook:biz:1.0.0-BUILD-SNAPSHOT @ C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC\pom.xml.
+2024-05-21 10:41:17,968 [Worker-9: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.springbook:biz:1.0.0-BUILD-SNAPSHOT @ C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC\pom.xml.
+2024-05-21 10:41:18,748 [Worker-9: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:18,753 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:41:18,762 [Worker-9: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:18,763 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:41:19,430 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:19,432 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:41:19,435 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:19,437 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:41:19,689 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:19,690 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:41:19,694 [Worker-11: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:19,696 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:41:19,937 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:19,938 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:41:19,943 [Worker-2: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:19,944 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:41:20,198 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:20,199 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:41:20,203 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:20,203 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:41:20,427 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:20,428 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:41:20,432 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:20,433 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:41:20,984 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.springbook:biz:1.0.0-BUILD-SNAPSHOT @ C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC\pom.xml.
+2024-05-21 10:41:27,231 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:27,233 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-05-21 10:41:27,235 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:41:27,236 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2024-05-21 10:48:38,277 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-21 10:48:41,086 [Worker-3: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.springbook:biz:1.0.0-BUILD-SNAPSHOT @ C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC\pom.xml.
+2024-05-21 10:48:42,849 [Worker-3: Updating Maven Dependencies] ERROR o.e.m.c.i.p.r.ProjectRegistryRefreshJob - null
+java.lang.NullPointerException: null
+	at org.eclipse.m2e.wtp.ProjectUtils.getRelativePath(ProjectUtils.java:58)
+	at org.eclipse.m2e.wtp.ProjectUtils.getBuildFolder(ProjectUtils.java:84)
+	at org.eclipse.m2e.wtp.ProjectUtils.getM2eclipseWtpFolder(ProjectUtils.java:75)
+	at org.eclipse.m2e.wtp.internal.mavenarchiver.WarMavenArchiverConfigurator.getOutputDir(WarMavenArchiverConfigurator.java:44)
+	at org.sonatype.m2e.mavenarchiver.internal.AbstractMavenArchiverConfigurator.mavenProjectChanged(AbstractMavenArchiverConfigurator.java:222)
+	at org.eclipse.m2e.wtp.mavenarchiver.AbstractWTPArchiverConfigurator.mavenProjectChanged(AbstractWTPArchiverConfigurator.java:56)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.mavenProjectChanged(ProjectConfigurationManager.java:1040)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:824)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:991)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-05-21 10:48:45,835 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.springbook:biz:1.0.0-BUILD-SNAPSHOT @ C:\Users\A\1-eclipse-workspace\sts\work_space3\BoardWeb_SpringMVC\pom.xml.
+2024-05-21 10:48:47,067 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:48:47,072 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:48:47,085 [Worker-2: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:48:47,086 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2024-05-21 10:48:52,012 [Worker-0: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:48:52,018 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2024-05-21 10:48:52,022 [Worker-0: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-21 10:48:52,023 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
