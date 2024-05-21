@@ -20,11 +20,11 @@
 	<table border="1" cellpadding="1" cellspacing="0">
 		<tr>
 			<td bgcolor="orange">아이디</td>
-			<td><input type="text" name="u_id"></td>
+			<td><input type="text" name="u_id" value="${userVO.u_id}"></td>
 		</tr>
 		<tr>
 			<td bgcolor="orange">비밀번호</td>
-			<td><input type="password" name="u_pw"></td>
+			<td><input type="password" name="u_pw" value="${userVO.u_pw}"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
