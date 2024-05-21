@@ -36,4 +36,14 @@
 - Controller -> DispatcherServlet에 return값은 String
 
 ##### ${\textsf{\color{green}💦Step 3-2: Spring MVC 패턴2}}$
--  
+- Step3-1에서는 com.springbook.view.controller에 아래와 같은 클래스들을 수.동으로 만들어주었다
+    - Controller, DispatcherServlet.java, HandlerMapping, ViewResolver.java
+- 그러나, 이것은 이해를 돕기 위해서 만든 것이지, 실제로는 Spring에서 제공해주는 객체들을 바로 사용하면 된다!
+- 0.기존에 사용했던 view.controller에 있는 파일들 모두 삭제
+- 1.WEB-INF/config/presentation-layer.xml파일에 
+    - (1)HandlerMapping 등록
+    - (2)Controller를 bean 등록 - (위에서 만든 handler와 연결하기 위해!)
+    - (3)ViewResolver 등록
+- 2.WEB-INF/web.xml파일에
+    - (1)spring에서 제공해주는 DispatcherServlet클래스 등록
+    - (2)인코딩도 여기서 처리! - (filer태그로 mapping)
