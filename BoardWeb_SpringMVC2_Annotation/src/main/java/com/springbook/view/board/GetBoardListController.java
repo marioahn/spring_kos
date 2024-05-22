@@ -1,6 +1,6 @@
 package com.springbook.view.board;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -16,20 +16,34 @@ public class GetBoardListController {
 	
 	// Step1: 검색 조건 목록 설정
 	@ModelAttribute("conditionMap") // conditionMap이란 모델에 아래 내용들을 저장할거고, jsp에서 쓸거라는 뜻임!!
-	// 아래 getBoardList메서드에서 매개변수로 Model model이 있지? 이게 바로 그거인 셈!
 	public Map<String, String> searchConditionMap() {
-		Map<String, String> conditionMap = new HashMap<String, String>();
+		// HashMap은 순서보장x여서, 아래가 순서대로 되지 않음. 
+		Map<String, String> conditionMap = new LinkedHashMap<String, String>();
+		conditionMap.put("전체로", "ALL");
 		conditionMap.put("제목", "TITLE");
 		conditionMap.put("내용", "CONTENT");
+		// conditionMap.put("작성자", "WRITER");
+		// conditionMap.put("작성일자", "REGDATE");
 		return conditionMap;
 	}
 	
-	// Step2: 글 목록 검색
+	// Step2: 글 전체 조회
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, BoardDAO boardDAO, Model model) {
+		
+		// for 검색 기능!
+		// 아래 조건이 있어야 전체조회가 제대로 된다.. BoardDAO에서 else 쿼리(BOARD_LIST)가 없어도 되는 이유!!!!
+		if(vo.getSearchCondition() == null) 
+			vo.setSearchCondition("TITLE");
+		
+		// if(vo.getSearchKeyword() == null)
+			// vo.setSearchKeyword("");
+		if(vo.getSearchKeyword().isEmpty()) // 위에서 null로 하면 제대로 안먹히네 - text값이 없는 경우!(client에서)
+			vo.setSearchKeyword("99999999999999");
+		
 		// Model 정보 저장
 		model.addAttribute("boardList", boardDAO.getBoardList(vo));
-		return "getBoardList.jsp"; // View이름 리턴
+		return "getBoardList.jsp"; // View이름 리턴	
 	}
 }
 

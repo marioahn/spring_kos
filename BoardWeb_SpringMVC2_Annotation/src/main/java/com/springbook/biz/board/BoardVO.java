@@ -9,6 +9,8 @@ public class BoardVO {
 	private String content;
 	private Date regDate;
 	private int cnt;
+	private String searchCondition; // 검색 기능 위한 변수 - 어떤 조건으로 검색할거야?
+	private String searchKeyword; // 검색 기능 위한 변수 - 어떤 값을 입력해서 검색할거야?
 
 	public int getSeq() {
 		return seq;
@@ -62,6 +64,22 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
 				+ regDate + ", cnt=" + cnt + "]";
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
 	}
 
 }

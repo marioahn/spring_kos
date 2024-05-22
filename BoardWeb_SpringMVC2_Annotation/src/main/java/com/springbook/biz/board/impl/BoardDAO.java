@@ -26,6 +26,11 @@ public class BoardDAO {
 	private final String BOARD_DELETE = "delete board where seq=?";
 	private final String BOARD_GET = "select * from board where seq=?";
 	private final String BOARD_LIST = "select * from board order by seq desc";
+	// 검색기능 위한 쿼리
+	private final String BOARD_tLIST = "select * from board "
+			+ "where title like '%'||?||'%' order by seq desc";
+	private final String BOARD_cLIST = "select * from board "
+			+ "where content like '%'||?||'%' order by seq desc";
 
 	// CRUD 기능의 메소드 구현
 	// 글 등록
@@ -110,7 +115,29 @@ public class BoardDAO {
 		List<BoardVO> boardList = new ArrayList<BoardVO>();
 		try {
 			conn = JDBCUtil.getConnection();
-			stmt = conn.prepareStatement(BOARD_LIST);
+			if (vo.getSearchCondition().equals("TITLE")) {
+				stmt = conn.prepareStatement(BOARD_tLIST);
+				stmt.setString(1, vo.getSearchKeyword());
+			} else if (vo.getSearchCondition().equals("CONTENT")) {
+				stmt = conn.prepareStatement(BOARD_cLIST);
+				stmt.setString(1, vo.getSearchKeyword());
+			} else if (vo.getSearchCondition().equals("ALL")) {
+				stmt = conn.prepareStatement(BOARD_LIST);
+			}
+			// else문에 {stmt = conn.prepareStatement(BOARD_LIST);}는 필요없겠네. 
+			// 전체게시판 가보면 condition기본 옵션은 제목이라서, 일단 첫 if문에 바로 자동으로 dive됨. 처음 로그인하고 전체목록페이지가 켜지면
+			// 그리고, 이떄 '?'파라미터가 없으므로 like '%%'가 돼서 전체조회가 되니까 이전과 똑같이 나옴
+			// --> 아니지아니지. 가장 중요한건, GetBoardListController.java의 아래 코드 때문임
+				// if(vo.getSearchCondition() == null) vo.setSearchCondition("TITLE");
+				// 이게 있으니까, 컨디션없는 경우, 선택하지 않는 경우(처음 로그인할 때 전체게시판 들어가면 condition안 골랐으니 null이잖아)
+				// 의 분기처리가 되고, 자연스럽게 위에 tLIst쿼리문이 날라가게 되는 거임
+				// wow;;
+			// 그런데, 그래도 전체조회도 찾아주자. 내용조건 클릭하고, 빈값으로 검색하면 아무것도 없는게 나와야지 전체조회는 좀 이상해 보임!
+				// if(vo.getSearchKeyword() == null) 
+				// vo.setSearchKeyword("99999999999999");
+				// 원래는 ""부분을 9999999로 해서 웬만하면 포함하는거 없게! - 근데 유한적인 코드..이긴 하네
+			System.out.println("키워드!!!!: " + vo.getSearchKeyword());
+			
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				BoardVO board = new BoardVO();
