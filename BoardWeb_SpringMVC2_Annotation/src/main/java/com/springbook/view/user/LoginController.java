@@ -1,44 +1,49 @@
 package com.springbook.view.user;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.springbook.biz.user.UserVO;
 import com.springbook.biz.user.impl.UserDAO;
 
 @Controller
 public class LoginController {
-
-	@RequestMapping(value="/login.do", method=RequestMethod.GET)
-	public String loginView(UserVO vo) {
-		System.out.println("로그인 화면으로 이동");
-		vo.setU_id("test");
-		vo.setU_pw("test123");
-		// test, test123이 텍스트박스에 써져있는 상태로 이동함!!!!!
-		return "login.jsp";
-	}
 	
-	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String login(UserVO vo, UserDAO userDAO) {
-		System.out.println("로그인 인증 처리..");
-		if (userDAO.getUser(vo) != null) return "getBoardList.do";
+	// (Servlet API - p.384~ )
+	@RequestMapping("/login.do")
+	public String login(UserVO vo, UserDAO userDAO, HttpSession session) {
+		System.out.println("로그인!");
+		
+		UserVO user = userDAO.getUser(vo);
+		if (user != null) {
+			session.setAttribute("userName", user.getU_name()); // SetAttribute: servlet API중 하나!
+			return "getBoardList.do";
+		} 
 		else return "login.jsp";
-	}	
+	}
 }
-
-// (~p.378의 방법)
-//@Controller
-//public class LoginController {
-//
-//	@RequestMapping("/login.do")
+	
+//  // (p.379)Get, Post둘다 value(요청 경로)는 같으나, method가 다르기에, 구분이 된다!
+//	// do요청시, 어느 메서드를 실행시킬지에 대한 혼선이 x
+//	// 그러나, 이 Get방식은 보안문제 등 때문에 노노. 웬만하면 xx. 
+//	@RequestMapping(value="/login.do", method=RequestMethod.GET)
+//	public String loginView(UserVO vo) {
+//		System.out.println("로그인 화면으로 이동");
+//		vo.setU_id("test");
+//		vo.setU_pw("test123");
+//		// test, test123이 텍스트박스에 써져있는 상태로 이동함!!!!!
+//		return "login.jsp";
+//	}
+//	
+//	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 //	public String login(UserVO vo, UserDAO userDAO) {
-//		System.out.println("로그인!");
-//		System.out.println(vo);
+//		System.out.println("로그인 인증 처리..");
 //		if (userDAO.getUser(vo) != null) return "getBoardList.do";
 //		else return "login.jsp";
 //	}
-//}
+
 
 //@Override
 //public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {

@@ -21,16 +21,19 @@
 <body>
 	<center>
 	<h1>글 목록 - ToTheMoon </h1>
-	<h3>테스트님 환영합니다... <a href="logout.do">Log-Out</a></h3>
+	<h3>[${userName}]님 환영합니다! <a href="logout.do">Log-Out</a></h3>
 		
 	<!-- 검색 시작 -->
-	<form action="getBoardList.jsp" method="post">
+	<form action="getBoardList.do" method="post">
 	<table border="1" cellpadding="0" cellspacing="0" width="700">
 		<tr>
 			<td align="right">
 				<select name="searchCondition">
-					<option value="TITLE">제목
-					<option value="CONTENT">내용
+					<!-- <option value="TITLE">제목
+					<option value="CONTENT">내용 -->
+				<c:forEach items="${conditionMap}" var="option">
+					<option value="${option.value}">${option.key}
+				</c:forEach>
 				</select>
 				<input name="searchKeyword" type="text"/>
 				<input type="submit" value="검색"/>
@@ -50,6 +53,10 @@
 		</tr>
 		<!-- JSTL로! -->
 		<%-- <% for(BoardVO board: boardList) { %> --%>
+		<!-- GetBoardListController에서
+			-> model.addAttribute("boardList", boardDAO.getBoardList(vo)); 했음
+			-> boardList라고 정해줬다. model에 저장하고. 그래서 여기서 그걸 꺼내쓸 수 있는거임. ${boardList}로!!
+		 -->
 		<c:forEach items="${boardList }" var="board">
 		<tr>
 			<td>${board.seq }</td>
