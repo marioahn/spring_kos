@@ -12,4 +12,7 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
     <fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+    <fullyQualifiedTypeName name="com.springbook.biz.board.impl.BoardDAO"/>
+    <fullyQualifiedTypeName name="com.springbook.biz.user.impl.UserDAO"/>
 </qualifiedTypeNameHistroy>
