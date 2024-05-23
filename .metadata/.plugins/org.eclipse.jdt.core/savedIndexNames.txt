@@ -3,7 +3,6 @@ INDEX VERSION 1.131+C:\Users\A\1-eclipse-workspace\sts\work_space3\.metadata\.pl
 1033559388.index
 3873603856.index
 795157537.index
-992142360.index
 95059903.index
 3683087033.index
 1544587541.index
