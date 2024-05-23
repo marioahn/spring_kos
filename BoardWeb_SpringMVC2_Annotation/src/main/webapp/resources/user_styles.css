@@ -1,0 +1,106 @@
+@charset "EUC-KR";
+
+/* 전체 페이지 스타일 */
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 테이블 스타일 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px; /* 여백 추가 */
+}
+
+/* 헤더 스타일 */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 24px; /* 폰트 크기 조정 */
+}
+
+th h1 {
+    margin: 0;
+    font-size: 24px; /* 폰트 크기 조정 */
+}
+
+/* 셀 스타일 */
+td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* 첫번째 열 스타일 */
+td:first-child {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+/* 인풋 스타일 */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+    width: calc(100% - 24px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #45a049;
+}
+
+/* 링크 스타일 */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+/* 테이블 행 hover 스타일 */
+tr:hover {
+    background-color: #f1f1f1;
+}

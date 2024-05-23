@@ -6,7 +6,7 @@
 <head>
     <meta charset="EUC-KR">
     <title>회원 가입</title>
-    <link rel="stylesheet" href="resources/board_styles.css">
+    <link rel="stylesheet" href="resources/user_styles.css">
     <style>
         table {
             margin: 0 auto;

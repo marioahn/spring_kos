@@ -36,10 +36,9 @@ public class GetBoardListController {
 		if(vo.getSearchCondition() == null) 
 			vo.setSearchCondition("TITLE");
 		
-		// if(vo.getSearchKeyword() == null)
-			// vo.setSearchKeyword("");
-		if(vo.getSearchKeyword().isEmpty()) // 위에서 null로 하면 제대로 안먹히네 - text값이 없는 경우!(client에서)
-			vo.setSearchKeyword("99999999999999");
+		if(vo.getSearchKeyword() == null) vo.setSearchKeyword(""); // 여기서 null로 하면 제대로 안먹히네 - text값이 없는 경우!(client에서)
+		else if (vo.getSearchKeyword().isEmpty()) vo.setSearchKeyword("99999999999999"); // 이거 추가!
+		
 		
 		// Model 정보 저장
 		model.addAttribute("boardList", boardDAO.getBoardList(vo));
