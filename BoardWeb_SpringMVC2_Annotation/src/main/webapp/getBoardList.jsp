@@ -71,6 +71,9 @@
 
 	<br>
 	<a href="insertBoard.jsp">새 글 등록</a>
+	<br>
+	<hr>
+	<img src="resources/tothemoon.jpg" alt="Header Image" style="width:50%; max-width:300px; height:auto;">
 	</center>
 </body>
 </html>

@@ -28,8 +28,14 @@
 		</tr>
 		<c:forEach items="${userList }" var="user">
 		<tr>
+		
 			<td>${user.u_seq}</td>
-			<td>${user.u_name}</td>
+			<!-- 수정할 때, getUser()메서드를 가져와야 하는데, 이건 id,pw가 있어야 함 - login할 때 쓰는거니까
+				- (setString) -> 근데? 개위험.. 그냥 메서드 하나 더 만들자. 아래 태그 노노!
+				- !!!!그래도 일단, &로 조건 2개 넣는거는 기억해두자(request저렇게 하는거임ㅇㅇ. id,pw정보 2개 넣어서!) !!!!!!!!
+			<td align="left"><a href="getUser.do?u_id=${user.u_id}&u_pw=${user.u_pw}">${user.u_name}</a></td> 
+			-->
+			<td align="left"><a href="getUser.do?u_seq=${user.u_seq}">${user.u_name}</a></td>
 			<td>${user.u_id}</td>
 			<td>${user.u_gender}</td>
 			<td>${user.u_phone}</td>

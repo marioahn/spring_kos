@@ -13,8 +13,7 @@ public class SignupController {
 	public String insertUser(UserVO vo, UserDAO userDAO) { // signup()메서드명 말고 이걸로ㅇㅇ;ㅎ;
 		
 		userDAO.insertUser(vo);
-		return "getUserList.do"; // 회원가입하면 유저 전체 목록 화면으 로 ㄱㄱ(좀 이상하긴 해도 일단..)
-		// return "login.jsp";
+		return "login.jsp";
 	}
 
 }

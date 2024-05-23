@@ -70,6 +70,8 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
+
+button[type="button"],
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
@@ -83,6 +85,7 @@ input[type="reset"] {
     font-size: 16px;
 }
 
+button[type="button"],
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {

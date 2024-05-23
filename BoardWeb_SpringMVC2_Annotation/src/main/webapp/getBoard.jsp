@@ -26,6 +26,7 @@
 	<%-- <input name="seq" type="hidden" value="<%= board.getSeq() %>" />
 		위 코드 대신에 아래 EL로! 자바코드 제거~ 더 깔끔해보이긴 하다
 	--%>
+	<!-- pk인 seq로 db에서 찾을거니까! -->
 	<input name="seq" type="hidden" value="${board.seq}" />
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>

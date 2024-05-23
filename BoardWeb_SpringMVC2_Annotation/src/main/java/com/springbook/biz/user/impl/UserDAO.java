@@ -20,12 +20,13 @@ public class UserDAO {
 	private final String USER_GET = "select * from users where u_id=? and u_pw=?";
 	private final String USER_INSERT = "insert into users(u_seq, u_name, u_gender, u_id, u_pw, u_pwc, u_addr, u_email, u_phone, u_hobby, u_introduce) values((select nvl(max(u_seq), 0)+1 from users),?,?,?,?,?,?,?,?,?,?)";
 	private final String USER_UPDATE = "update users set u_pw=?, u_pwc=?, u_addr=?, u_email=?, u_phone=?, u_hobby=?, u_introduce=? where u_id=?";
-	private final String USER_DELETE = "delete users where u_id=?"; // 아이디를 기준으로 찾아서, 지운다
+	private final String USER_DELETE = "delete users where u_seq=?"; // seq를 기준으로 찾아서, 지운다
 	private final String USER_LIST = "select * from users order by u_seq desc";
+	private final String USER_GET_ONE = "select * from users where u_seq=?";
 
 	// CRUD 기능의 메소드 구현
 
-	// 회원 상세 조회 - 로그인시, 활용
+	// 회원 상세 조회1 - 로그인시에만 활용 => 애초에 처음 설계가 잘못된것 같음 -> getUser가 아니라 login로 함수명이 바뀌고 로직도 바꼈어야 할 듯
 	public UserVO getUser(UserVO vo) {
 		UserVO user = null;
 		try {
@@ -42,6 +43,40 @@ public class UserDAO {
 				user.setU_gender(rs.getString("U_GENDER"));
 				user.setU_id(rs.getString("U_ID"));
 				user.setU_pw(rs.getString("U_PW"));
+				user.setU_addr(rs.getString("U_ADDR"));
+				user.setU_email(rs.getString("U_EMAIL"));
+				user.setU_phone(rs.getString("U_PHONE"));
+				user.setU_hobby(rs.getString("U_HOBBY"));
+				user.setU_introduce(rs.getString("U_INTRODUCE"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		return user;
+	}
+	
+	// 회원 상세 조회2 - 유저전체목록에서, 상세조회 들어가서 - 수정할 때 사용..
+	// 번거롭긴 하다.. 그런데, 상세페이지에서 바로 수정하니까 할 말이 없을것 같기도 하고. 원래 상세페이지에서 -> 수정화면 등이 필요하지 않을까!?
+	// 근데 이것도, 뭐 사이트마다 다르긴 할 듯. 뭐가 정답인지는 모르겠다
+	public UserVO getUserOne(UserVO vo) {
+		UserVO user = null;
+		try {
+			System.out.println("===> JDBC로 getUser() 기능 처리");
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(USER_GET_ONE);
+			stmt.setInt(1, vo.getU_seq());
+			// stmt.setString(2, vo.getU_pw()); 빼기
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				user = new UserVO();
+				user.setU_seq(rs.getInt("U_SEQ"));
+				user.setU_name(rs.getString("U_NAME"));
+				user.setU_gender(rs.getString("U_GENDER"));
+				user.setU_id(rs.getString("U_ID"));
+				user.setU_pw(rs.getString("U_PW"));
+				user.setU_pwc(rs.getString("U_PWC"));
 				user.setU_addr(rs.getString("U_ADDR"));
 				user.setU_email(rs.getString("U_EMAIL"));
 				user.setU_phone(rs.getString("U_PHONE"));
@@ -105,6 +140,7 @@ public class UserDAO {
 	public void deleteUser(UserVO vo) {
 		System.out.println("===> JDBC로 deleteUser() 기능 처리");
 		try {
+			System.out.println("seq제대로 뜨냐????? " + vo.getU_seq());
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(USER_DELETE);
 			stmt.setInt(1, vo.getU_seq());
