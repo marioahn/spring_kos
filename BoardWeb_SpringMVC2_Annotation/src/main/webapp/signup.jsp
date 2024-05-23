@@ -15,8 +15,9 @@
     <script>
     /* js코드로 이메일 앞/뒤부분 합쳐서 db에 보내기 -> 현재 2개로 나뉘어져있어서 db에 이메일정보가 저장이 안됨 */
     	
+    	// 1. 분할태그 합치기
         function combineFields() {
-        	// 1.이메일 태그 합치기
+        	// 1)이메일 태그 합치기
             var emailId = document.getElementsByName("emailId")[0].value;
             var emailAddr = document.getElementsByName("emailAddr")[0].value;
             var emailAddrSelect = document.getElementsByName("emailAddrSelect")[0].value;
@@ -28,19 +29,59 @@
             var fullEmail = emailId + "@" + emailAddr;
             document.getElementsByName("u_email")[0].value = fullEmail;
             
-         	// 2.핸드폰 태그 합치기
+         	// 2)핸드폰 태그 합치기
          	var tel1 = document.getElementsByName("tel_1")[0].value;
             var tel2 = document.getElementsByName("tel_2")[0].value;
             var tel3 = document.getElementsByName("tel_3")[0].value;
             var fullPhone = tel1 + "-" + tel2 + "-" + tel3;
             document.getElementsByName("u_phone")[0].value = fullPhone;
         }
+    
+    	// 2. 중복체크(.. 여기에 js, java, html 3개있음.. 어지럽다..)
+    	var isIdAvailable = false;
+    	
+        function checkDuplicateId() {
+            var userId = document.getElementsByName("u_id")[0].value;
+            if(userId === "") {
+                alert("아이디를 입력해주세요.");
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "checkId.do", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    var response = xhr.responseText;
+                    if(response == "available") {
+                        alert("사용 가능한 아이디입니다.");
+                        isIdAvailable = true;
+                    } else {
+                        alert("이미 사용 중인 아이디입니다.");
+                        isIdAvailable = false;
+                    }
+                }
+            };
+            xhr.send("u_id=" + encodeURIComponent(userId));
+        }
+        
+        // 3. id중복체크해서, 중복이면 아예 폼제출 못하도록!
+        function validateForm(event) {
+            if (!isIdAvailable) {
+                alert("아이디 중복 체크를 통과하지 못했습니다. 다른 아이디를 사용해주세요.");
+                event.preventDefault();
+            } else {
+                combineFields();
+            }
+        }
      
     </script>
 </head>
 
 <body>
-<form method="post" action="signup.do" target="_self" onsubmit="combineFields()">
+<!-- <form method="post" action="signup.do" target="_self" onsubmit="combineFields()"> -->
+<form method="post" action="signup.do" target="_self" onsubmit="validateForm(event)">
     <table border="0" width="650">
         <tr>
             <th colspan="2">
@@ -62,7 +103,8 @@
             <td>아이디</td>
             <td>
                 <input type="text" name="u_id" size="10" max="20">
-                <input type="button" value="중복확인" name="idconfirm" onclick="">
+                <input type="button" value="중복확인" name="idconfirm" onclick="checkDuplicateId()">
+                <!-- <input type="button" value="중복확인" name="idconfirm" onclick=""> -->
             </td>
         </tr>
         <tr>

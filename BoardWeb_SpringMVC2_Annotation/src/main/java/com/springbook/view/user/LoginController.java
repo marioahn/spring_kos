@@ -19,9 +19,12 @@ public class LoginController {
 		UserVO user = userDAO.getUser(vo);
 		if (user != null) {
 			session.setAttribute("userName", user.getU_name()); // SetAttribute: servlet API중 하나!
+			if (user.getU_id().equals("admin") && user.getU_pw().equals("admin123")) { // ==쓰면 false뜸. ==는 두 객체의 메모리 주소를 비교함ㅇㅇ
+				return "getUserList.do";
+			}
 			return "getBoardList.do";
 		} 
-		else return "login.jsp";
+		else return "login.jsp"; // 로그인 실패
 	}
 }
 	
