@@ -8,7 +8,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* 변경: flex-start로 설정하여 테이블을 수직 상단에 맞춤 */
     height: 100vh;
 }
 
@@ -21,7 +21,7 @@ table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 20px; /* 여백 추가 */
+    margin-top: 50px; /* 여백 추가 */
 }
 
 /* 헤더 스타일 */
@@ -103,4 +103,15 @@ a:hover {
 /* 테이블 행 hover 스타일 */
 tr:hover {
     background-color: #f1f1f1;
+}
+
+/* 이메일과 전화번호를 한 줄로 정렬 */
+.inline-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.inline-inputs input,
+.inline-inputs select {
+    margin-right: 10px;
 }

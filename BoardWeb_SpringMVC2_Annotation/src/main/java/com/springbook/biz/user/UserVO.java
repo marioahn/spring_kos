@@ -1,5 +1,7 @@
 package com.springbook.biz.user;
 
+import java.sql.Date;
+
 //VO(Value Object)
 public class UserVO {
 	private int u_seq;
@@ -13,6 +15,7 @@ public class UserVO {
 	private String u_phone;
 	private String u_hobby;
 	private String u_introduce;
+	private Date u_regdate;
 
 	public int getU_seq() {
 		return u_seq;
@@ -108,5 +111,15 @@ public class UserVO {
 				+ u_pw + ", u_pwc=" + u_pwc + ", u_addr=" + u_addr + ", u_email=" + u_email + ", u_phone=" + u_phone
 				+ ", u_hobby=" + u_hobby + ", u_introduce=" + u_introduce + "]";
 	}
+
+	public Date getU_regdate() {
+		return u_regdate;
+	}
+
+	public void setU_regdate(Date u_regdate) {
+		this.u_regdate = u_regdate;
+	}
+
+
 
 }

@@ -1,5 +1,7 @@
 package com.springbook.biz.user.impl;
 
+import java.util.List;
+
 import com.springbook.biz.user.UserService;
 import com.springbook.biz.user.UserVO;
 
@@ -16,6 +18,21 @@ public class UserServiceImpl implements UserService {
 	
 	public void insertUser(UserVO vo) {
 		userDAO.insertUser(vo);
+	}
+
+	@Override
+	public List<UserVO> getUserList(UserVO vo) {
+		return userDAO.getUserList(vo);
+	}
+
+	@Override
+	public void updateUser(UserVO vo) {
+		userDAO.updateUser(vo);
+	}
+
+	@Override
+	public void deleteUser(UserVO vo) {
+		userDAO.deleteUser(vo);
 	}
 
 }

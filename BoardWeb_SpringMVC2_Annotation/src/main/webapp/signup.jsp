@@ -83,37 +83,41 @@
         <tr>
             <td>이메일</td>
             <td>
-                <input type="text" name="emailId" size="10" max="20">@
-                <input type="text" name="emailAddr" size="15" max="20">
-                <select name="emailAddrSelect">
-                    <option value="" selected>직접입력
-                    <option value="naver.com">naver.com
-                    <option value="daum.net">daum.net
-                    <option value="gmail.com">gmail.com
-                    <option value="nate.com">nate.com
-                    <option value="yahoo.com">yahoo.com
-                </select>
-                <!-- Hidden field to store the combined email -->
-                <input type="hidden" name="u_email">
+            	<div class="inline-inputs">
+	                <input type="text" name="emailId" size="10" max="20">@
+	                <input type="text" name="emailAddr" size="15" max="20">
+	                <select name="emailAddrSelect">
+	                    <option value="" selected>직접입력
+	                    <option value="naver.com">naver.com
+	                    <option value="daum.net">daum.net
+	                    <option value="gmail.com">gmail.com
+	                    <option value="nate.com">nate.com
+	                    <option value="yahoo.com">yahoo.com
+	                </select>
+	                <!-- Hidden field to store the combined email -->
+	                <input type="hidden" name="u_email">
+                </div>
             </td>
         </tr>
         <tr>
             <td>전화번호</td>
             <td>
-                <select name="tel_1" size="1">
-                    <option value="010" selected>010
-                    <option value="011">011
-                    <option value="016">016
-                    <option value="017">017
-                    <option value="018">018
-                    <option value="019">019
-                </select>
-                -
-                <input type="text" name="tel_2" size="6" max="10">
-                -
-                <input type="text" name="tel_3" size="6" max="10">
-                <!-- Hidden field to store the combined phone number -->
-                <input type="hidden" name="u_phone">
+            	<div class="inline-inputs">
+	                <select name="tel_1" size="1">
+	                    <option value="010" selected>010
+	                    <option value="011">011
+	                    <option value="016">016
+	                    <option value="017">017
+	                    <option value="018">018
+	                    <option value="019">019
+	                </select>
+	                -
+	                <input type="text" name="tel_2" size="6" max="10">
+	                -
+	                <input type="text" name="tel_3" size="6" max="10">
+	                <!-- Hidden field to store the combined phone number -->
+	                <input type="hidden" name="u_phone">
+                </div>
             </td>
         </tr>
         <tr>

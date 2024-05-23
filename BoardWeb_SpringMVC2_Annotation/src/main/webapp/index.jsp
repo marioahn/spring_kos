@@ -12,7 +12,8 @@
 		<hr>
 			<a href="login.do">로그인</a><br><br><br>
 			<a href="signup.jsp">회원가입</a><br><br><br>
-			<a href="getBoardList.do">글 목록 바로가기</a>
+			<a href="getBoardList.do">글 목록 바로가기</a><br><br><br>
+			<a href="getUserList.do">회원 목록 바로가기</a>
 		<hr>
 	</center>
 </body>
