@@ -50,6 +50,12 @@
 			<td align="left">${board.cnt}</td>
 		</tr>
 		<tr>
+			<td bgcolor="orange">첨부 파일</td>
+			<%-- <td align="left"><a href="C:/Users/A/1-eclipse-workspace/sts/work_space3/upload/boarduploadfile/${board.fileName}">${board.fileName}</a></td> --%>
+			<td align="left"><a href="resources/upload/boardUploadFile/${board.fileName}">${board.fileName}</a></td>
+			
+		</tr>
+		<tr>
 			<td colspan="2" align="center">
 				<input type="submit" value="글 수정"/>
 			</td>
@@ -57,6 +63,7 @@
 	</table>
 	</form>
 	<hr>
+	<a href="www.google.com">테스트</a>
 	<a href="insertBoard.jsp">글 등록</a>&nbsp;&nbsp;&nbsp;
 	<a href="deleteBoard.do?seq=${board.seq}">글 삭제</a>&nbsp;&nbsp;&nbsp;
 	<a href="getBoardList.do">글 목록</a>

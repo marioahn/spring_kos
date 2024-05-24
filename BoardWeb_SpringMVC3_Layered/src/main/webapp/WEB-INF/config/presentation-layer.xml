@@ -13,6 +13,11 @@
 	<!-- 위 3개 다 삭제하고, context로 대체! - annotation으로 bean대체할 거니까 여기 넣을 필요x! -->
 	<context:component-scan base-package="com.springbook.view"></context:component-scan>
 	
+	<!-- 파일 업로드 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000" />	
+	</bean>
+	
 </beans>
 
 <!-- 여기가 SimpleUrlHandlerMapping임 -->

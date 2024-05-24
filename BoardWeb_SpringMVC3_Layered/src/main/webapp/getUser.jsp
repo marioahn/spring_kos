@@ -52,6 +52,10 @@
 			<td align="left"><textarea name="u_introduce" cols="40" rows="10">${user.u_introduce}</textarea></td>
 		</tr>
 		<tr>
+			<td bgcolor="orange">프로필 사진</td>			
+			<td align="left"><img src="resources/upload/userUploadFile/${user.u_filename}" alt="${user.u_filename}" style="max-width: 100px; max-height: 100px;"/></td>			
+		</tr>
+		<tr>
 			<td colspan="2" align="center">
 				<input type="submit" value="회원 정보 수정"/>
 				<!-- <button type="button" onclick="location.href='deleteUser.do'">회원 삭제</button>

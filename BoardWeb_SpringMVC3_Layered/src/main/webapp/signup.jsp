@@ -18,42 +18,42 @@
     	// 1. 분할태그 합치기
         function combineFields() {
         	// 1)이메일 태그 합치기
-            const emailId = document.getElementsByName("emailId")[0].value;
-            const emailAddr = document.getElementsByName("emailAddr")[0].value;
-            const emailAddrSelect = document.getElementsByName("emailAddrSelect")[0].value;
+            var emailId = document.getElementsByName("emailId")[0].value;
+            var emailAddr = document.getElementsByName("emailAddr")[0].value;
+            var emailAddrSelect = document.getElementsByName("emailAddrSelect")[0].value;
             
             if(emailAddrSelect !== "") {
                 emailAddr = emailAddrSelect;
             }
             
-            const fullEmail = emailId + "@" + emailAddr;
+            var fullEmail = emailId + "@" + emailAddr;
             document.getElementsByName("u_email")[0].value = fullEmail;
             
          	// 2)핸드폰 태그 합치기
-         	const tel1 = document.getElementsByName("tel_1")[0].value;
-            const tel2 = document.getElementsByName("tel_2")[0].value;
-            const tel3 = document.getElementsByName("tel_3")[0].value;
-            const fullPhone = tel1 + "-" + tel2 + "-" + tel3;
+         	var tel1 = document.getElementsByName("tel_1")[0].value;
+            var tel2 = document.getElementsByName("tel_2")[0].value;
+            var tel3 = document.getElementsByName("tel_3")[0].value;
+            var fullPhone = tel1 + "-" + tel2 + "-" + tel3;
             document.getElementsByName("u_phone")[0].value = fullPhone;
         }
     
     	// 2. 중복체크(.. 여기에 js, java, html 3개있음.. 어지럽다..)
-    	const isIdAvailable = false;
+    	var isIdAvailable = false;
     	
         function checkDuplicateId() {
-            const userId = document.getElementsByName("u_id")[0].value;
+            var userId = document.getElementsByName("u_id")[0].value;
             if(userId === "") {
                 alert("아이디를 입력해주세요.");
                 return;
             }
 
-            const xhr = new XMLHttpRequest();
+            var xhr = new XMLHttpRequest();
             xhr.open("POST", "checkId.do", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
             xhr.onreadystatechange = function() {
                 if(xhr.readyState == 4 && xhr.status == 200) {
-                    const response = xhr.responseText;
+                    var response = xhr.responseText;
                     if(response == "available") {
                         alert("사용 가능한 아이디입니다.");
                         isIdAvailable = true;
@@ -80,8 +80,8 @@
 </head>
 
 <body>
-<!-- <form method="post" action="signup.do" target="_self" onsubmit="combineFields()"> -->
-<form method="post" action="signup.do" target="_self" onsubmit="validateForm(event)">
+<!-- <form method="post" action="signup.do" target="_self" onsubmit="combineFields()">   -->
+<form method="post" action="signup.do" target="_self" enctype="multipart/form-data" onsubmit="validateForm(event)">
     <table border="0" width="650">
         <tr>
             <th colspan="2">
@@ -180,6 +180,13 @@
                 <textarea name="u_introduce" rows="10" cols="60"></textarea>
             </td>
         </tr>
+        <tr>
+            <td>사진 첨부</td>
+            <td>
+                <input type="file" name="u_pic" size="20">
+            </td>
+        </tr>
+        <tr>
         <tr>
             <th colspan="2">
                 <input type="submit" value="가입하기"> <input type="reset" value="다시작성">

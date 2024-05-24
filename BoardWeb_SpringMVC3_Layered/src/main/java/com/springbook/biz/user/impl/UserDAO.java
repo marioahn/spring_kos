@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.springbook.biz.common.JDBCUtil;
 import com.springbook.biz.user.UserVO;
 
@@ -18,8 +20,8 @@ public class UserDAO {
 
 	// SQL 명령어들
 	private final String USER_GET = "select * from users where u_id=? and u_pw=?";
-	private final String USER_INSERT = "insert into users(u_seq, u_name, u_gender, u_id, u_pw, u_pwc, u_addr, u_email, u_phone, u_hobby, u_introduce) values((select nvl(max(u_seq), 0)+1 from users),?,?,?,?,?,?,?,?,?,?)";
-	private final String USER_UPDATE = "update users set u_pw=?, u_pwc=?, u_addr=?, u_email=?, u_phone=?, u_hobby=?, u_introduce=? where u_id=?";
+	private final String USER_INSERT = "insert into users(u_seq, u_name, u_gender, u_id, u_pw, u_pwc, u_addr, u_email, u_phone, u_hobby, u_introduce, u_filename) values((select nvl(max(u_seq), 0)+1 from users),?,?,?,?,?,?,?,?,?,?,?)";
+	private final String USER_UPDATE = "update users set u_pw=?, u_pwc=?, u_addr=?, u_email=?, u_phone=?, u_hobby=?, u_introduce=?, u_filename where u_id=?";
 	private final String USER_DELETE = "delete users where u_seq=?"; // seq를 기준으로 찾아서, 지운다
 	private final String USER_LIST = "select * from users order by u_seq desc";
 	private final String USER_GET_ONE = "select * from users where u_seq=?";
@@ -82,6 +84,7 @@ public class UserDAO {
 				user.setU_phone(rs.getString("U_PHONE"));
 				user.setU_hobby(rs.getString("U_HOBBY"));
 				user.setU_introduce(rs.getString("U_INTRODUCE"));
+				user.setU_filename(rs.getString("U_FILENAME"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -109,6 +112,9 @@ public class UserDAO {
 			stmt.setString(8, vo.getU_phone());
 			stmt.setString(9, vo.getU_hobby());
 			stmt.setString(10, vo.getU_introduce());
+			// getU_pic().getOriginalFilename()으로!
+			stmt.setString(11, vo.getU_pic().getOriginalFilename());
+			
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -131,7 +137,9 @@ public class UserDAO {
 			stmt.setString(5, vo.getU_phone());
 			stmt.setString(6, vo.getU_hobby());
 			stmt.setString(7, vo.getU_introduce());
-			stmt.setString(8, vo.getU_id()); // 마지막 where문의 '?'
+			stmt.setString(8, vo.getU_filename());
+			stmt.setString(9, vo.getU_id()); // 마지막 where문의 '?'
+			
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

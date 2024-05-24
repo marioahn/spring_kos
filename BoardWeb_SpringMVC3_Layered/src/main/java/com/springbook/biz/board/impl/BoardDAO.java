@@ -21,7 +21,7 @@ public class BoardDAO {
 
 	// SQL 명령어들
 	// nvl은 null일경우 뒤의값, 아닐경우 앞의값을 return
-	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) values((select nvl(max(seq), 0)+1 from board),?,?,?)";
+	private final String BOARD_INSERT = "insert into board(seq, title, writer, content, upload) values((select nvl(max(seq), 0)+1 from board),?,?,?,?)";
 	private final String BOARD_UPDATE = "update board set title=?, content=? where seq=?";
 	private final String BOARD_DELETE = "delete board where seq=?";
 	private final String BOARD_GET = "select * from board where seq=?";
@@ -42,6 +42,7 @@ public class BoardDAO {
 			stmt.setString(1, vo.getTitle()); //1번 ?
 			stmt.setString(2, vo.getWriter()); //2번 ?
 			stmt.setString(3, vo.getContent()); //3번 ?
+			stmt.setString(4, vo.getUploadFile().getOriginalFilename()); //4번 ?
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,6 +101,7 @@ public class BoardDAO {
 				board.setContent(rs.getString("CONTENT"));
 				board.setRegDate(rs.getDate("REGDATE"));
 				board.setCnt(rs.getInt("CNT"));
+				board.setFileName(rs.getString("UPLOAD"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -12,7 +12,7 @@
 	<a href="logout.do">Log-out</a>
 	<hr>
 	<!-- insertBoard_proc.jsp에서 변경 - 이제 _proc.jsp는 안 쓸거임ㅇㅇ -->
-	<form action="insertBoard.do" method="post">
+	<form action="insertBoard.do" method="post" enctype="multipart/form-data">
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>
 			<td bgcolor="orange" width="70">제목</td>
@@ -26,6 +26,10 @@
 		<tr>
 			<td bgcolor="orange">내용</td>
 			<td align="left"><textarea name="content" cols="40" rows="10"></textarea></td>
+		</tr>
+		<tr>
+			<td bgcolor="orange" width="70">업로드</td>
+			<td><input type="file" name="uploadFile" /></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">

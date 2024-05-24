@@ -2,6 +2,8 @@ package com.springbook.biz.user;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 //VO(Value Object)
 public class UserVO {
 	private int u_seq;
@@ -16,6 +18,9 @@ public class UserVO {
 	private String u_hobby;
 	private String u_introduce;
 	private Date u_regdate;
+	
+	private MultipartFile u_pic;
+	private String u_filename;
 
 	public int getU_seq() {
 		return u_seq;
@@ -118,6 +123,22 @@ public class UserVO {
 
 	public void setU_regdate(Date u_regdate) {
 		this.u_regdate = u_regdate;
+	}
+
+	public MultipartFile getU_pic() {
+		return u_pic;
+	}
+
+	public void setU_pic(MultipartFile u_pic) {
+		this.u_pic = u_pic;
+	}
+
+	public String getU_filename() {
+		return u_filename;
+	}
+
+	public void setU_filename(String u_filename) {
+		this.u_filename = u_filename;
 	}
 
 

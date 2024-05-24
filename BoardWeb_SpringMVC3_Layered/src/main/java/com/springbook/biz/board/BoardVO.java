@@ -2,6 +2,8 @@ package com.springbook.biz.board;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
 	private int seq;
 	private String title;
@@ -11,6 +13,9 @@ public class BoardVO {
 	private int cnt;
 	private String searchCondition; // 검색 기능 위한 변수 - 어떤 조건으로 검색할거야?
 	private String searchKeyword; // 검색 기능 위한 변수 - 어떤 값을 입력해서 검색할거야?
+	
+	private MultipartFile uploadFile; // 파일 업로드를 위한 필드
+	private String fileName; // 파일 경로를 저장할 필드
 
 	public int getSeq() {
 		return seq;
@@ -81,5 +86,23 @@ public class BoardVO {
 	public void setSearchCondition(String searchCondition) {
 		this.searchCondition = searchCondition;
 	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+
 
 }

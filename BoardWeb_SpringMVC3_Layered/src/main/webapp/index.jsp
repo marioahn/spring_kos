@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="EUC-KR">
 <title>Main Page</title>
+<link rel="stylesheet" href="resources/index_styles.css">
 </head>
 <body>
 	<center>

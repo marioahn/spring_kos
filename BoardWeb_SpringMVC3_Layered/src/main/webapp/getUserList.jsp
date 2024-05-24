@@ -16,6 +16,9 @@
 <body>
 <h1>회원 리스트</h1>
 <hr>
+	<div class="button-container">
+        <a href="index.jsp" class="back-button">메인 페이지로 돌아가기</a>
+    </div>
 	<table border="1" cellpadding="0" cellspacing="0" width="700">
 		<tr>
 			<th bgcolor="orange" width="100">번호(seq)</th>
