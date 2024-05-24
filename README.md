@@ -48,7 +48,7 @@
     - (2)Controller를 bean 등록 - (위에서 만든 handler와 연결하기 위해!)
     - (3)ViewResolver 등록
 
-##### ${\textsf{\color{green}💦Step 3-3: Spring MVC 패턴3 - Annotation적용}}$
+##### ${\textsf{\color{green}💦Step 3-3: Spring MVC 패턴2-2 - Annotation적용}}$
 - 3-2에서는 xml파일에 bean으로 객체들을 관리했지만, 과도한 XML설정 문제가 야기될 수 있다
     - 따라서, 어노테이션 설정을 최대한 활용하여 XML설정을 최소화할 필요가 있다!
     - -> Bean에서 Annotation방식으로 바꿈
@@ -56,9 +56,10 @@
 
 
 
-
-##### ${\textsf{\color{green}💦Step 3-4: Spring MVC 패턴4 + ???? }}$
-- 이제 프레젠테이션 레이어와 비즈니스 레이어를 통합할 것이다!
-- ?? 이전에 했던게 프레젠테이션 레이어인가? 비즈니스레이어인가? 각각 뭐임?
-
-- todo: 조회수
+##### ${\textsf{\color{green}💦Step 3-4: Spring MVC 패턴3 + Layered-Architecture }}$
+- 내가 예전에 했던, Layered-Architecture느낌의 패턴으로 프로젝트 구조를 바꿀 것이다
+- 여태까지는 Controller에 DAO, VO가 모두 있었다
+- 그런데, Controller는 클라이언트에서 요청을 받고 그것을 전달하고, 반환값을 클라이언트에게 전달하는 역할이다
+    - 즉, 백단에서 클라이언트와 상호작용하는 최전선이다
+    - 따라서, Controller에서 Service로직을 분리하는 것이 맞다
+- 각 계층별로 역할을 명확하게 - 관심사의 분리가 필요!
