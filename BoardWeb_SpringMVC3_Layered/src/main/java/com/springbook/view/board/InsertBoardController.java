@@ -3,20 +3,24 @@ package com.springbook.view.board;
 import java.io.File;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller; // @Controller는 아래가 아니라 이거임
 // import org.springframework.web.servlet.mvc.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.impl.BoardDAO;
 
 // POJO스타일로 구현!
 @Controller
 public class InsertBoardController {
+	@Autowired
+	private BoardService boardService;
 
 	@RequestMapping(value="/insertBoard.do")
-	public String insertBoard(BoardVO vo, BoardDAO boardDAO) throws IOException { // HttpServletRequest request대신에, BoardVo vo가 매개변수로
+	public String insertBoard(BoardVO vo) throws IOException { // HttpServletRequest request대신에, BoardVo vo가 매개변수로
 		// 파일 업로드 처리
 		MultipartFile uploadFile = vo.getUploadFile();
 		System.out.println("vo.setUpload안해도 되냐?? 이 값 제대로 나오냐?" + vo.getUploadFile()); // 제대로 나온다!
@@ -29,9 +33,9 @@ public class InsertBoardController {
 			uploadFile.transferTo(new File(filePath)); // 파일 저장!!
 			// vo.setUploadFile(uploadFile); // 이걸 할 필요가 없음. 이미 위에서 vo.getUploadFile()하면 값이 나옴.
 			// 클라에서 넘어오면서 자동으로 세팅이 된 상태임. 당연하지 후;;
-		}
-		
-		boardDAO.insertBoard(vo);
+		}		
+		// boardDAO.insertBoard(vo);
+		boardService.insertBoard(vo);
 		return "getBoardList.do"; 
 	}
 }

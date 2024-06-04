@@ -1,16 +1,21 @@
 package com.springbook.view.board;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.impl.BoardDAO;
 
 @Controller
 @SessionAttributes("board")
 public class UpdateBoardController {
+	@Autowired
+	private BoardService boardService;
+
 	
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo, BoardDAO boardDAO) {
@@ -21,7 +26,7 @@ public class UpdateBoardController {
 		System.out.println("등록일: " + vo.getRegDate());
 		System.out.println("조회수: " + vo.getCnt());
 		
-		boardDAO.updateBoard(vo);
+		boardService.updateBoard(vo);
 		return "getBoardList.do";
 	}
 }

@@ -3,16 +3,21 @@ package com.springbook.view.board;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.board.impl.BoardDAO;
 
 @Controller
 public class GetBoardListController {
+	@Autowired
+	private BoardService boardService;
+
 	
 	// Step1: 검색 조건 목록 설정
 	@ModelAttribute("conditionMap") // conditionMap이란 모델에 아래 내용들을 저장할거고, jsp에서 쓸거라는 뜻임!!
@@ -29,19 +34,17 @@ public class GetBoardListController {
 	
 	// Step2: 글 전체 조회
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardVO vo, BoardDAO boardDAO, Model model) {
+	public String getBoardList(BoardVO vo, Model model) { // BoardDAO boardDAO 변수로 필요 없음 이제
 		
 		// for 검색 기능!
 		// 아래 조건이 있어야 전체조회가 제대로 된다.. BoardDAO에서 else 쿼리(BOARD_LIST)가 없어도 되는 이유!!!!
-		if(vo.getSearchCondition() == null) 
-			vo.setSearchCondition("TITLE");
+		if(vo.getSearchCondition() == null)	vo.setSearchCondition("TITLE");
 		
 		if(vo.getSearchKeyword() == null) vo.setSearchKeyword(""); // 여기서 null로 하면 제대로 안먹히네 - text값이 없는 경우!(client에서)
 		else if (vo.getSearchKeyword().isEmpty()) vo.setSearchKeyword("99999999999999"); // 이거 추가!
 		
-		
 		// Model 정보 저장
-		model.addAttribute("boardList", boardDAO.getBoardList(vo));
+		model.addAttribute("boardList", boardService.getBoardList(vo));
 		return "getBoardList.jsp"; // View이름 리턴	
 	}
 }
