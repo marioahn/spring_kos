@@ -15,7 +15,8 @@
     <script>
     /* js코드로 이메일 앞/뒤부분 합쳐서 db에 보내기 -> 현재 2개로 나뉘어져있어서 db에 이메일정보가 저장이 안됨 */
     	
-    	// 1. 분할태그 합치기
+    
+    	// 1. 분할태그 합치기 - 
         function combineFields() {
         	// 1)이메일 태그 합치기
             var emailId = document.getElementsByName("emailId")[0].value;
@@ -77,6 +78,18 @@
         }
      
     </script>
+    <!-- 주소, 우편찾기용 -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  	<script>
+	    function kakaopost() {
+	      new daum.Postcode({
+	        oncomplete: function (data) {
+	          document.querySelector("#zipcode").value = data.zonecode;
+	          document.querySelector("#address").value = data.address
+	        }
+	      }).open();
+	    }
+  </script>
 </head>
 
 <body>
@@ -118,10 +131,16 @@
         <tr>
             <td>주소</td>
             <td>
-                <input type="text" name="u_addr" size="50" max="100">
-                <input type="button" name="addrSearch" value="주소찾기" onclick="">
+                <input type="text" name="u_addr" id="address" size="50" max="100">
             </td>
         </tr>
+        <tr>
+        	<td width="200">우편번호</td>
+        	<td>
+        		<input type="text" name="zipcode" id="zipcode" size="7" readonly>
+        		<input type="button" value="우편번호찾기" onclick="kakaopost()">
+        	</td>
+   		</tr>
         <tr>
             <td>이메일</td>
             <td>

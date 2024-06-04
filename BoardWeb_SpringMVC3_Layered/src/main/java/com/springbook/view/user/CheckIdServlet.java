@@ -29,6 +29,7 @@ public class CheckIdServlet extends HttpServlet {
             return;
         }
         
+        // 
         try {
         	String sql = "SELECT COUNT(*) FROM users WHERE u_id = ?";
         	conn = JDBCUtil.getConnection();

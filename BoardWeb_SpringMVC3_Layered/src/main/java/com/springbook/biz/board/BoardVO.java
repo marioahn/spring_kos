@@ -15,7 +15,7 @@ public class BoardVO {
 	private String searchKeyword; // 검색 기능 위한 변수 - 어떤 값을 입력해서 검색할거야?
 	
 	private MultipartFile uploadFile; // 파일 업로드를 위한 필드
-	private String fileName; // 파일 경로를 저장할 필드
+	private String fileName; // 파일 이름을 저장할 필드
 
 	public int getSeq() {
 		return seq;
