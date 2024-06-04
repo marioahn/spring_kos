@@ -67,4 +67,5 @@
 - 0)추가기능
     - 파일 첨부 기능 추가(게시글 첨부파일, 유저 프로필 사진 - MultiPartFile)
 
-- 
+- 1)계층 분리 완료
+    - Presentation-Layer, Business-Layer
